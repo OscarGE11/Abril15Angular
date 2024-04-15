@@ -14,31 +14,23 @@ export class UsandoDirectivasComponent {
   datos={
     nacionalidades:["Española","Argentina","Ecuatoriana",
     "Marroquí","Venezolana","Polaca","Rusa"],
-    lenguajesProgramacion:["C++","Java","JS","Python","Rust",
-  "Cobol"],
+    lenguajesProgramacion:["C++","Java","JS","Python"],
   generos:["Mujer","Hombre","Otros"]
   }
   genero:string="";
   nacionalidad:string="";
-  lenguajesSeleccionados: {[key: string]: boolean} = {};
-
-  constructor() {
-    
-    this.datos.lenguajesProgramacion.forEach((lenguaje) => {
-      this.lenguajesSeleccionados[lenguaje] = false;
-    });
-  }
-
+  
+  lenguajesSeleccionados: boolean[] = new Array(
+    this.datos.lenguajesProgramacion.length).fill(false);
 
 
   mostrarInformacion(): void {
-    const lenguajesSeleccionados = Object.keys(this.lenguajesSeleccionados)
-      .filter(key => this.lenguajesSeleccionados[key])
-      .join(', ');
-  
+   console.log(this.lenguajesSeleccionados);
     let mensaje = `Genero: ${this.genero}
   Nacionalidad: ${this.nacionalidad}
-  Lenguajes de programación: ${lenguajesSeleccionados}`;
+  Lenguajes de programación: ${this.datos.lenguajesProgramacion
+    .filter((_, i) => this.lenguajesSeleccionados[i])
+    .join(', ')}`;
   
     alert(mensaje);
   }

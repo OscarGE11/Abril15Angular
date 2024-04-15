@@ -19,8 +19,9 @@
 </label>
 <br>
 <label>
-    Lenguajes de Programación: @for (item of datos.lenguajesProgramacion; track $index) {
-        <input type="checkbox" [(ngModel)]="lenguajesSeleccionados[item]" [id]="item">{{item}}
+    Lenguajes de Programación:</label> @for (item of datos.lenguajesProgramacion; track $index) {
+        <input type="checkbox" [(ngModel)]="lenguajesSeleccionados[$index]" id="{{ item }}" name="item">
+        {{ item }}
     }
-</label><br>
+<br>
 <button (click)="mostrarInformacion()">Mostrar información</button>
