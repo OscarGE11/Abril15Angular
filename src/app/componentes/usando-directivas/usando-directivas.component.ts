@@ -27,8 +27,8 @@ export class UsandoDirectivasComponent {
   mostrarInformacion(): void {
    console.log(this.lenguajesSeleccionados);
     let mensaje = `Genero: ${this.genero}
-  Nacionalidad: ${this.nacionalidad}
-  Lenguajes de programación: ${this.datos.lenguajesProgramacion
+Nacionalidad: ${this.nacionalidad}
+Lenguajes de programación: ${this.datos.lenguajesProgramacion
     .filter((_, i) => this.lenguajesSeleccionados[i])
     .join(', ')}`;
   
